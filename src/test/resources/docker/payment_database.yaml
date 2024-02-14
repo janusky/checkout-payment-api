@@ -1,0 +1,12 @@
+
+services:
+  postgresql:
+    container_name: postgres
+    image: postgres:16.1
+    ports:
+      - "5432:5432"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./payment_database.sql:/docker-entrypoint-initdb.d/1-init.sql
